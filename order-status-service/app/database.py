@@ -8,7 +8,7 @@ import os
 def get_engine():
     db_url = os.getenv(
         "DB_URL",
-        "postgresql://admin:admin123@23.23.135.253:5432/mydb"
+        "postgresql://admin:admin123@postgres-db:5432/mydb"
     )
     return create_engine(db_url, pool_pre_ping=True)
 

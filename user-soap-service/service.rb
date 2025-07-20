@@ -14,7 +14,7 @@ end
 
 # Preflight request configuration
 options '*' do
-  allowed_origin = 'http://3.227.120.143:8080'
+  allowed_origin = 'http://interface-service:8080'
   origin = request.env['HTTP_ORIGIN']
 
   if origin == allowed_origin

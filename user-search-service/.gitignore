@@ -7,9 +7,6 @@
 # Dependencias y módulos de Go
 /vendor/
 
-# Ignore environment files (if used)
-.env
-
 # Archivos de configuración específicos del IDE (Ej. VSCode, JetBrains)
 .vscode/
 .idea/

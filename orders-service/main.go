@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	POSTGRES_URI = "postgresql://admin:admin123@23.23.135.253:5432/mydb?sslmode=disable"
-	CATALOG_URL  = "http://3.224.44.87/catalog/models/id/"
+	POSTGRES_URI = "postgresql://admin:admin123@postgres-db:5432/mydb?sslmode=disable"
+	CATALOG_URL  = "http://localhost/catalog/models/id/"
 )
 
 type Order struct {

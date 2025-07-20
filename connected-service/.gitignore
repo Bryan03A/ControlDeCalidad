@@ -10,9 +10,6 @@ yarn-error.log
 package-lock.json
 # package.json
 
-# Ignore environment files (if used)
-.env
-
 # Ignore editor configuration files (optional)
 .idea/
 .vscode/

@@ -47,7 +47,7 @@ class ImageService(image_service_pb2_grpc.ImageServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     image_service_pb2_grpc.add_ImageServiceServicer_to_server(ImageService(), server)
-    server.add_insecure_port("0.0.0.0:5014")
+    server.add_insecure_port("0.0.0.0:5021")
     print("🔹 gRPC Image Service running on port 5014...")
     server.start()
     server.wait_for_termination()

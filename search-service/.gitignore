@@ -1,9 +1,6 @@
 # Ignorar el entorno de Go
 bin/
 
-# Ignorar el archivo .env que contiene credenciales y configuraciones sensibles
-.env
-
 # Ignorar archivos temporales de Go
 *.log
 

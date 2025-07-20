@@ -9,9 +9,6 @@ __pycache__/
 # Ignorar el archivo de configuración de Python que puede ser generado por IDEs
 .idea/
 
-# Ignorar el archivo .env que contiene variables sensibles
-.env
-
 # Ignorar el archivo de lock (si se está utilizando pipenv o poetry, por ejemplo)
 Pipfile.lock
 poetry.lock

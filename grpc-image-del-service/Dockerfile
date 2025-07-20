@@ -17,7 +17,7 @@ RUN pip install grpcio-tools
 RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. image_service.proto
 
 # Exponer el puerto que usa tu microservicio
-EXPOSE 5014
+EXPOSE 5021
 
 # Copy the .env file
 COPY .env /app/

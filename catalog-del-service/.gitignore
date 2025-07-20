@@ -4,9 +4,6 @@ venv/
 # Ignorar archivos generados por Python
 __pycache__/
 
-# Ignorar el archivo .env que contiene variables sensibles
-.env
-
 # Ignorar los archivos de bloqueo de dependencias (si es necesario)
 *.lock
 

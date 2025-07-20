@@ -11,9 +11,6 @@ tmp/
 db/*.sqlite3
 db/*.sqlite3-journal
 
-# Ignorar los archivos de configuración de entornos locales
-.env
-
 # Ignorar los archivos generados por Ruby
 *.swp
 *.swo
