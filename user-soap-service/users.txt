@@ -1,0 +1,50 @@
+POST
+http://localhost:5002/register
+
+[
+    {
+        "username": "3DArtist",
+        "password": "12345",
+        "first_name": "Mike",
+        "last_name": "Johnson",
+        "dni": "98765432",
+        "email": "mike.johnson@email.com",
+        "city": "Los Angeles"
+    },
+    {
+        "username": "DesignQueen",
+        "password": "12345",
+        "first_name": "Anna",
+        "last_name": "Smith",
+        "dni": "87654321",
+        "email": "anna.smith@email.com",
+        "city": "New York"
+    },
+    {
+        "username": "Techie",
+        "password": "12345",
+        "first_name": "Tom",
+        "last_name": "Williams",
+        "dni": "76543210",
+        "email": "tom.williams@email.com",
+        "city": "San Francisco"
+    },
+    {
+        "username": "3DDesign",
+        "password": "12345",
+        "first_name": "Lucas",
+        "last_name": "Martinez",
+        "dni": "65432109",
+        "email": "lucas.martinez@email.com",
+        "city": "Miami"
+    },
+    {
+        "username": "ModelMaker",
+        "password": "12345",
+        "first_name": "Jane",
+        "last_name": "Brown",
+        "dni": "54321098",
+        "email": "jane.brown@email.com",
+        "city": "Chicago"
+    }
+]

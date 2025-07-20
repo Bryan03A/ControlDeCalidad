@@ -1,0 +1,67 @@
+# === Archivos temporales y de log ===
+*.log
+*.tmp
+*.bak
+*.swp
+*.out
+*.test
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+venv/
+dist/
+build/
+pip-log.txt
+pip-delete-this-directory.txt
+Pipfile.lock
+poetry.lock
+test_app.py
+
+# === Node.js ===
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# === Ruby ===
+*.gem
+*.rbc
+*.rvmrc
+.bundle/
+vendor/bundle/
+log/
+tmp/
+db/*.sqlite3
+db/*.sqlite3-journal
+
+# === Go ===
+/vendor/
+bin/
+*.exe
+
+# === Docker ===
+# (solo ignora si quieres evitar que se suban los archivos de definición)
+# puedes comentar estas líneas si sí deseas subirlos
+# Dockerfile
+# docker-compose.yml
+
+# === Configuración de IDEs / Editores ===
+.idea/
+.vscode/
+
+# === Sistema Operativo ===
+.DS_Store
+Thumbs.db
+
+# === Archivos específicos del proyecto ===
+auth.txt
+Run.txt
+Enpoints.txt
+
+# === Git interno (por si copias de otros proyectos) ===
+*.git

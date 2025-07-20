@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Imagen a Supabase</title>
+</head>
+<body>
+    <h1>Subir Imagen</h1>
+
+    <form id="uploadForm">
+        <label for="file">Seleccionar imagen:</label>
+        <input type="file" id="file" name="file" required>
+        <br>
+        <label for="fileName">Nombre de la imagen:</label>
+        <input type="text" id="fileName" name="fileName" required>
+        <br>
+        <button type="submit">Subir Imagen</button>
+    </form>
+
+    <h2>Imágenes Subidas</h2>
+    <ul id="imagesList"></ul>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const fileInput = document.getElementById('file');
+            const fileNameInput = document.getElementById('fileName');
+            const file = fileInput.files[0];
+            const fileName = fileNameInput.value;
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = async function() {
+                const fileData = reader.result.split(',')[1];  // Convertir a base64
+
+                const soapRequest = `<?xml version="1.0" encoding="UTF-8"?>
+                <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                    <soap:Body>
+                        <UploadImageRequest xmlns="http://example.com/imageservice">
+                            <fileName>${fileName}</fileName>
+                            <fileData>${fileData}</fileData>
+                        </UploadImageRequest>
+                    </soap:Body>
+                </soap:Envelope>`;
+
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/soap', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'text/xml',
+                        },
+                        body: soapRequest
+                    });
+
+                    const responseText = await response.text();
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(responseText, "text/xml");
+                    const imageUrl = xmlDoc.getElementsByTagName("url")[0].textContent;
+
+                    alert('Imagen subida con éxito: ' + imageUrl);
+                    loadImages(); // Recargar las imágenes después de subir una nueva
+                } catch (error) {
+                    console.error('Error al subir la imagen:', error);
+                    alert('Error al subir la imagen.');
+                }
+            };
+        });
+
+        async function loadImages() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/soap/get_image?filename=imagen.jpg', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/xml',
+                    },
+                });
+
+                const data = await response.json();
+                const imageList = document.getElementById('imagesList');
+                imageList.innerHTML = '';
+                data.images.forEach(image => {
+                    const li = document.createElement('li');
+                    li.textContent = image;
+                    imageList.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Error al cargar las imágenes:', error);
+            }
+        }
+
+        loadImages(); // Cargar imágenes al iniciar
+    </script>
+</body>
+</html>

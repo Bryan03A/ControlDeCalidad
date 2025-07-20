@@ -1,0 +1,5 @@
+flask
+zeep
+python-dotenv
+flask-cors
+boto3

@@ -1,0 +1,17 @@
+# Ignorar el entorno de Go
+bin/
+
+# Ignorar el archivo .env que contiene credenciales y configuraciones sensibles
+.env
+
+# Ignorar archivos temporales de Go
+*.log
+
+# Ignorar archivos compilados de Go
+*.exe
+*.out
+*.test
+
+# Ignorar directorios de configuración específicos de sistemas operativos
+.DS_Store
+Thumbs.db

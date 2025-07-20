@@ -1,0 +1,5 @@
+grpcio-tools
+pymongo
+grpcio
+protobuf
+python-dotenv

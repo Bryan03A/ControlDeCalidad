@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://example.com/userservice"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  targetNamespace="http://example.com/userservice">
+
+  <message name="registerUserRequest">
+    <part name="username" type="xsd:string"/>
+    <part name="password" type="xsd:string"/>
+    <part name="first_name" type="xsd:string"/>
+    <part name="last_name" type="xsd:string"/>
+    <part name="dni" type="xsd:string"/>
+    <part name="email" type="xsd:string"/>
+    <part name="city" type="xsd:string"/>
+  </message>
+
+  <message name="registerUserResponse">
+    <part name="message" type="xsd:string"/>
+    <part name="user_id" type="xsd:string"/>
+  </message>
+
+  <portType name="UserServicePortType">
+    <operation name="registerUser">
+      <input message="tns:registerUserRequest"/>
+      <output message="tns:registerUserResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="UserServiceBinding" type="tns:UserServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="registerUser">
+      <soap:operation soapAction="registerUser"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="UserService">
+    <port name="UserServicePort" binding="tns:UserServiceBinding">
+      <soap:address location="http://50.19.4.172/user-soap/user-service"/>
+    </port>
+  </service>
+</definitions>

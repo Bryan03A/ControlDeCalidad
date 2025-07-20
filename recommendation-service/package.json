@@ -1,0 +1,20 @@
+{
+  "name": "recommendation-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node redis-service.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "This microservice manages user search histories by saving recent queries in Redis for fast retrieval. It exposes REST endpoints to store and fetch search records, leveraging Redis lists for efficient insertion and retrieval. The service connects to a remote Redis instance with authentication and ensures reliability with error handling and health checks.",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^4.21.2",
+    "redis": "^4.7.0"
+  },
+  "type": "commonjs"
+}
